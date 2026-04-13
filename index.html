@@ -147,7 +147,10 @@
     <div class="logo-meta-container">
       <h2 class="display-4 font-weight-normal"><img class="logo" src="/img/templogo.png"></h2>
       <subtitle><i>Last website update: <a href="https://github.com/recordcrash/homestuck.net/commits/master"><span class="github-commit-date">2/19/2026</span></a></i></subtitle>
+	  <br>
+	  <subtitle><i>Last mirror update: <a href="https://github.com/emilydaemon/homestuck.net/commits/donut-mirror"><span class="github-mirror-commit-date">4/13/2026</span></a> (if this is older than the above website update date, the mirror is out of date! please <a href="https://donut.eu.org/contact">contact me</a>.)</i></subtitle>
     </div>
+	<p class="lead font-weight-normal">NOTE: You are accessing an unofficial mirror of homestuck.net hosted by <a href="donut.eu.org">emilydaemon</a>.</p>
     <p class="lead font-weight-normal">New to the comic? Click the button for a new reader's guide to make your experience as smooth as possible!</p>
     <a href="/homestuck.html"><div class="btn-read-homestuck"></div></a>
     <p class="pt-3 font-italic">Already read it? Check out the resources below</p>
@@ -298,6 +301,18 @@
     .then(data => {
       // edit all elements with the class 'github-commit-date'
       document.querySelectorAll(".github-commit-date").forEach(function(element) {
+        // set the text of the element to the date of the latest commit
+        const date = new Date(data.commit.author.date);
+        // set only the date part
+        element.textContent = date.toLocaleDateString();
+      });
+    });
+  // fetch latest commit date from emilydaemon repository "homestuck.net"
+  fetch("https://api.github.com/repos/emilydaemon/homestuck.net/commits/donut-mirror")
+    .then(response => response.json())
+    .then(data => {
+      // edit all elements with the class 'github-mirror-commit-date'
+      document.querySelectorAll(".github-mirror-commit-date").forEach(function(element) {
         // set the text of the element to the date of the latest commit
         const date = new Date(data.commit.author.date);
         // set only the date part
