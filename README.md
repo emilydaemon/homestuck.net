@@ -1,82 +1,37 @@
-# Homestuck.net
+# Homestuck.net mirror
 
+This is a slightly modified copy of homestuck.net's static source, ready for mirroring.
 
-
-![Homestuck.net homepage](https://github.com/recordcrash/homestuck.net/blob/master/img/homestuck-net-embed.png?raw=true)
-
-[![Deploy Homestuck.net](https://github.com/recordcrash/homestuck.net/actions/workflows/main.yml/badge.svg)](https://github.com/recordcrash/homestuck.net/actions/workflows/main.yml)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/recordcrash/homestuck.net?style=flat-square)](https://github.com/recordcrash/homestuck.net/commits/master)
-[![Last Commit](https://img.shields.io/github/last-commit/recordcrash/homestuck.net?style=flat-square)](https://github.com/recordcrash/homestuck.net/commits/master)
-[![Homestuck Discord](https://img.shields.io/discord/152981670507577344?color=blue&label=Homestuck%20Discord&logo=discord&style=flat-square)](https://homestuck.net/discord.html)
-
-This is the static source of the website https://homestuck.net, the Homestuck fandom's archive.
+While it is currently deployed on my server at https://homestuck.donut.eu.org/, I strongly recommend you to host it yourself if you have the means. Read further for a guide.
 
 ## Table of Contents
 
-- [About the project](#about-the-project)
+- [About homestuck.net](#about-homestucknet)
+- [Limitations](#limitations)
 - [Installation](#installation)
-- [Contributing](#contributing)
-- [File structure](#file-structure)
 - [License](#license)
 
-## About the project
+## About homestuck.net
 
-Homestuck.net is a static website that serves as an archive for the Homestuck fandom and overall franchise. The archive is composed of a variety of HTML pages that link to audio, video, images, and text that the Homestuck fandom wants to preserve. Homestuck is a webcomic created by Andrew Hussie that was popular during the mid-2010s. The webcomic has a large and active fandom, and the Homestuck.net archive is an effort to preserve and celebrate their creative footprint.
+Homestuck.net was a static website that served as an archive for the Homestuck fandom and overall franchise. The archive was composed of a variety of HTML pages that linked to useful materials like sheet music, art tutorials, cosplay guides, and official content that was previously scattered around the internet and hard to find.
 
-The archive was created by a group of volunteers who are passionate about preservation. It includes fan art, fan fiction, music, cosplay, and other creative works. We welcome contributions from anyone who is interested in helping archive fanworks. 
+Unfortunately, on April 13th, 2026, the main author and hosting provider of homestuck.net's content decided to make the entire website act as a redirect for a Reddit post accusing the Homestuck team of many horrible things, which I won't get into here. This meant that a huge cornerstone of the Homestuck community was now inaccessible for no good reason, and that just won't do!
+
+However, due to homestuck.net's nature as a static bundle of html files, it is very easy to host yourself. This repository's goal is to make it even easier by removing any remaining dependence on homestuck.net and to eventually act as a replacement if necessary.
+
+## Limitations
+
+- As this is a fork of homestuck.net's static website source, the resource booru has not been mirrored (and if it ever is, it won't be under this repo.)
+- Jester Quest and Circus Break were not in the public source for homestuck.net that was available on GitHub (despite being referenced on several pages), and thus are not mirrored here. (TODO: scrape the files off of the internet archive and copy them here)
 
 ## Installation
 
-To install this project on your local machine, follow these steps:
+To deploy the mirror on your own server, follow these instructions:
 
-1. Clone the repository: `git clone https://github.com/recordcrash/homestuck.net.git`
-2. Navigate to the project directory: `cd homestuck.net`
-3. Open the `index.html` file in your web browser.
-
-## Contributing
-
-If you'd like to contribute "code" to this project, you can do so by submitting a pull request. Here's how:
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b your-feature-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin your-feature-name`
-5. Submit a pull request
-
-If you only want to contribute content, i.e. you're a fan artist, a developer, a writer or a musician who wants to archive their work, or even a fan who wants to preserve someone else's, please contact homestucknet@protonmail.
-
-## File structure
-
-The Homestuck.net project has the following file structure (some unimportant files and easter eggs excepted):
-
-```bash
-├── img/                    # Folder containing image files for the website
-├── css/                    # Folder containing CSS stylesheets
-├── js/                     # Folder containing JavaScript files for the website
-├── archive/                # Folder containing raw archived fan works with missing sources
-├── collection/             # Folder containing some files related to the Unofficial Homestuck Collection
-├── fanworks/               # Folder for the fanworks section of Homestuck.net
-├── games/                  # Folder for the games section of Homestuck.net
-├── official/               # Folder for the official works section of Homestuck.net
-├── meta/                   # Folder for the meta (theories, statistics, etc.) section of Homestuck.net
-├── music/                  # Folder for the music section of Homestuck.net
-├── resources/              # Folder for the fan resources section of Homestuck.net 
-├── tools/                  # Folder for the tools section of Homestuck.net
-├── about.html              # About page of the website
-├── archives.html           # Page for the Homestuck Archive, the torrent with raw fanworks
-├── companion.html          # Page for Homestuck Companion, the book commentary browser extension
-├── contact.html            # Contact page for the Homestuck.net project
-├── homestuck.html          # Page for new fans, which explains what Homestuck is and how to read it
-├── index.html              # The front page of Homestuck.net
-├── pesterchum.html         # Page for Pesterchum, the Homestuck chat application
-├── template.html           # (Semi-outdated) HTML template used for other pages
-├── thehomestuckarchives.torrent  # Torrent file containing an archive with bigger files
-├── toblerones.html         # Page for Hussie's toblerone hunt (long story)
-├── README.md               # Readme file for the project (you're reading it, chatGPT helped make it)
-├── LICENSE                 # License information for the project (it's MIT)
-```
-
-This project has no header or footer pages, it's all raw HTML. This has been chosen to make individual html pages usable, but in retrospect it makes things harder to maintain and we should have gone with static site generation (possible approach soon?). For now, if you want to contribute and need to submit a new page, make sure it follows the structure of all other pages.
+1. Clone the repository: `git clone https://github.com/emilydaemon/homestuck.net.git`
+1. Configure your web server to serve that repository on a (sub)domain of your choosing. I also recommend you to deny access to the `.git` folder.
+1. If necessary, add the subdomain you specified earlier to your DNS configuration.
+1. Restart your web server. The mirror should now be online!
 
 ## License
 
